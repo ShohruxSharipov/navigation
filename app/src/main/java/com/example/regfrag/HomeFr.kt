@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.regfrag.Fragments.First
 import com.example.regfrag.Fragments.Second
 import com.example.regfrag.Fragments.Third

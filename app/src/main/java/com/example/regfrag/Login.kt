@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.regfrag.databinding.FragmentLoginBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -17,6 +18,7 @@ private const val ARG_PARAM2 = "param2"
 
 
 class Login : Fragment() {
+    private lateinit var binding : FragmentLoginBinding
     private var param1: String? = null
     private var param2: String? = null
 
@@ -32,15 +34,18 @@ class Login : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binder = FragmentLoginBinding.inflate(inflater,container,false)
-        binder.button.setOnClickListener {
-            if (binder.login.text.toString() == "Admin" && binder.parol.text.toString() == "1234"){
+        binding = FragmentLoginBinding.inflate(inflater,container,false)
+        binding.button.setOnClickListener {
+            if (binding.login.text.toString() == "Admin" && binding.parol.text.toString() == "1234"){
+
                 findNavController().navigate(R.id.from_login_to_homeFr)
+
 
             }else Toast.makeText(requireContext(), "Error", Toast.LENGTH_SHORT).show()
         }
-        return binder.root
+        return binding.root
     }
+
 
     companion object {
         fun newInstance(param1: String, param2: String) =
